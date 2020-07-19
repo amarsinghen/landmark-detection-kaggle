@@ -44,7 +44,7 @@ Intel 9900k 8 core cpu, 1 RTX 2080TI GPU, 64gb RAM
   - For DeLF with multiprocessing, the CPU ran at near 100% capacity for days. 
   - Model training also took a couple days per group even with constant 90% cuda core usage in GPU during training.
 - Tried to use google colab, but the dataset size was in 30gb range for 224x224 sized images. Bought extra space (2TB) on google drive to mount drive to google colab notebooks, but  trying to upload dataset with so many images to google drive was a big challenge.
-- Also, since it tooks days to pre-process data and training, it is not feasable on google colab since it timesout at max 24 hours, and if you consistenly use their resources, timeouts get more frequent with shorter time windows. Therefoe, ended up doing mostof the project on local desktop.
+- Also, since it tooks days to pre-process data and training, it is not feasable on google colab since it times out at max 24 hours, and if you consistenly use their resources, timeouts get more frequent with shorter time windows. Therefoe, ended up doing mostof the project on local desktop.
 - Cleaning the dataset was also a big challange and thus really helped with learning new concepts to find best algorithms optimization strategies to process data.
 - Tried various transfer learning models, VGG16, VGG19, Resnet50, Inception_V3, Inception_ResnetV2.
 - Given the slowness in training, it was also challenging to do hyperparameter tuning since it took days to find best parameters.
