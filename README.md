@@ -2,14 +2,21 @@
 
 Landmark recognition API takes an input image of any size and predicts and dislplays the landmark_id out of 92k landmarks along with the confidence score.
 
-### Dataset
-- The dataset was acquired from Google Landmark Recognition 2019 Kaggle challenge.
-- The raw dataset consisted of ~4 million images with over 200k classes.
+### Running the FLASK API
+- Download the repository.
+- Ensure you have all the dependencies as in the requirements.txt file
+- Download the trained model from this link: (TBD), and save it in the same location as app.py file (root) in the project.
+- Run app.py
 
-### Hardware for this project
+### Data Pre-Processing and Modeling
+#### Dataset
+- The dataset was acquired from Google Landmark Recognition 2019 Kaggle challenge.
+- The raw training dataset consisted of ~4 million images of different sizes with over 200k classes, total 500gb.
+
+#### Hardware for this project
 Intel 9900k 8 core cpu, 1 RTX 2080TI GPU, 64gb RAM
 
-### Data Pre-Processing
+#### Data Pre-Processing
 - Classes with 5 or less images were discarded since the dataset size is too small for those classes.
 - The dataset was very impbalanced. There were over 200 important landmarks with >500 images. I decided to randomly sample only 500 images with these landmarks and got rid of rest.
 - Now there were ~6400 classes with >100 images and ~86000 classes with <=100 images. Therefore, the max number of images per class was set to 100 after DeLF feature matching step as described in next step. This helped with balancing the dataset somewhat.
@@ -17,12 +24,26 @@ Intel 9900k 8 core cpu, 1 RTX 2080TI GPU, 64gb RAM
 - I also performed some ad-hoc analysis and removed some additional classes that mostly had people in them and no landmarks.
 - All the images were re-sized to 224x224 RGB using PIL ImageOps.
 - Since the dataset with ~2.2 million is still huge, I decided to divide the dataset into 11 groups (based on number of images per class) for reducing the modeling time and train 11 models. This also helped with balancing the dataset since the range of images per class was 6 to 100. For example, I grouped the dataset with 6 to 10 images per class as group1.
+- The dataset was then split into train and validation datasets. The range of ratio of train/valid was 60/40 to 80/20 depending on the group. For group with smaller number of images per class had a lower train/valid ratio. 
 
-### Modeling
-- 11 seperate models were trained as per the dataset division and prediction was displayed to user based on the highest confidence score out of the 11 models for the input landmark image by user.  
+#### Modeling
+- 11 seperate models were trained as per the dataset division.
 - Used transfer learning and Resnet50 with imagenet weights as the base network with Tensorflow 2 framework was used to train the models.
-- Dropout layer with image augmentation techniques were used to help with overfitting.
+- Dropout layer and image augmentation techniques were used to help with severe overfitting.
+- Training time for each model varied from 1 to 2 days depending on the number of images per group.
 
-### Prediction
-- The user input image is also resized to 224x224 RGB images with PIL ImageOps.
-- 
+#### Prediction
+- The user input image is also resized to 224x224 RGB images with PIL ImageOps and scaled as in the training.
+- Then we run the prediction against all models and present the result to user based on the highest confidence score.
+
+#### Challenges
+- There were tremendous hardware limitations given the size of the dataset: 
+  - For DeLF with multiprocessing, the CPU ran at near 100% capacity for days. 
+  - Model training also took a couple days per group even with constant 90% cuda core usage in GPU during training.
+- Cleaning the dataset was also a big challange and thus really helped with learning new concepts to find best algorithms optimization strategies to process data.
+- Tried various transfer learning models, VGG16, VGG19, Resnet50, Inception_V3, Inception_ResnetV2.
+- Given the slowness in training, it was also challenging to do hyperparameter tuning since it took days to find best parameters.
+
+#### Further Improvements/ Recommendations
+- To process this scale of dataset, it is recommended to get a bigger hardware (Ideal in home relatively affordable: AMD Ryzen threadripper3990x 64-core, 4 RTX2080TI GPUs, 256GB RAM powered with solar panels :)). It will save days to tackle such a project.
+- Further data cleaning using Object detection is recommended. We can remove images with only people, trees, water, and no buildings to reduce more noisy data. Thanks to google's Tensorflow team, there are some good examples we can refer to. https://www.tensorflow.org/hub/tutorials/object_detection
