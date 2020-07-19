@@ -21,7 +21,7 @@ Intel 9900k 8 core cpu, 1 RTX 2080TI GPU, 64gb RAM
 #### Data Pre-Processing
 - Classes with 5 or less images were discarded since the dataset size is too small for those classes.
 - The dataset was very impbalanced. There were over 200 important landmarks with >500 images. I decided to randomly sample only 500 images with these landmarks and got rid of rest.
-- Now there were ~6400 classes with >100 images and ~86000 classes with <=100 images. Therefore, the max number of images per class was set to 100 after DeLF feature matching step as described in next step. This helped with balancing the dataset somewhat.
+- Now, there were ~6400 classes with >100 images and ~86000 classes with <=100 images. Therefore, the max number of images per class was set to 100 after DeLF feature matching step as described in next step. This helped with balancing the dataset somewhat.
 - I used DeLF to match each image within a class and removed any image that had less than 11 inliers against other images in same class. This filered the noisy images and reduced the dataset size to ~2.2 million images with ~92k classes. This step took 2 days for extracting DeLF features with multiprocessing and 10 days for feature matching with multiprocessing.
 - I also performed some ad-hoc analysis and removed some additional classes that mostly had people in them and no landmarks.
 - All the images were re-sized to 224x224 RGB using PIL ImageOps.
@@ -43,7 +43,7 @@ Intel 9900k 8 core cpu, 1 RTX 2080TI GPU, 64gb RAM
   - For DeLF with multiprocessing, the CPU ran at near 100% capacity for days. 
   - Model training also took a couple days per group even with constant 90% cuda core usage in GPU during training.
 - Tried to use google colab, but the dataset size was in 30gb range for 224x224 sized images. Bought extra space (2TB) on google drive to mount drive to google colab notebooks, but  trying to upload dataset with so many images to google drive was a big challenge.
-- Also, since it tooks days to pre-process data and training, it is not feasable on google colab since it times out at max 24 hours, and if you consistenly use there resources, timeouts get shorter and shorter. Therefoe, ended up doing mostof the project on local desktop.
+- Also, since it tooks days to pre-process data and training, it is not feasable on google colab since it timesout at max 24 hours, and if you consistenly use their resources, timeouts get more frequent with shorter time windows. Therefoe, ended up doing mostof the project on local desktop.
 - Cleaning the dataset was also a big challange and thus really helped with learning new concepts to find best algorithms optimization strategies to process data.
 - Tried various transfer learning models, VGG16, VGG19, Resnet50, Inception_V3, Inception_ResnetV2.
 - Given the slowness in training, it was also challenging to do hyperparameter tuning since it took days to find best parameters.
