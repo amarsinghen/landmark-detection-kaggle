@@ -1,4 +1,5 @@
-## Google Landmark Recognition 2019 Kaggle 
+## Google Landmark Recognition 2019 Kaggle
+(https://www.kaggle.com/c/landmark-recognition-2019)
 
 Landmark recognition API takes an input image of any size and predicts and dislplays the landmark_id out of 92k landmarks along with the confidence score.
 
