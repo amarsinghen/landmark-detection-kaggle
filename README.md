@@ -51,7 +51,7 @@ Intel 9900k 8 core cpu, 1 RTX 2080TI GPU, 64gb RAM
 - The model was consistently overfitting because of various reasons:
   - The number of images per class were really small, 6 minimum and 100 maximum. Most of the landmarks (~39k) had only 6 to 10 images. Creating a lot of imbalance
   - Even after DeLF step, there were a lot of images with only people, water, trees, bushes, no buildings etc., adding a lot of noise to dataset.
-  - A lot of landmarks were just mountains and beaches. Therefore, there adds a lot of confusion to relate the exact beach or mountain to a specific landmark. I think even humans (as a true reference point) can wrongly identify these mountains and beaches.
+  - A lot of landmarks were just mountains and beaches. Therefore, this adds a lot of confusion to relate the exact beach or mountain to a specific landmark. I think even humans (as a true reference point) can wrongly identify these mountains and beaches.
   
 #### Further Improvements/ Recommendations
 - To process this scale of dataset, it is recommended to get a bigger hardware (Ideal in home relatively affordable: AMD Ryzen threadripper3990x 64-core, 4 RTX2080TI GPUs, 256GB RAM powered with solar panels :)). It will save days to tackle such a project.
