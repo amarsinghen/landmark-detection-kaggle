@@ -29,8 +29,9 @@ Intel 9900k 8 core cpu, 1 RTX 2080TI GPU, 64gb RAM
 - The dataset was then split into train and validation datasets. The range of ratio of train/valid was 60/40 to 80/20 depending on the group. For group with smaller number of images per class had a lower train/valid ratio. 
 
 #### Modeling
+- Created a supervised multi-class classification model using Deep Learning Tensorflow 2 with Keras framework.
 - 11 seperate models were trained as per the dataset division.
-- Used transfer learning and Resnet50 with imagenet weights as the base network with Tensorflow 2 framework was used to train the models.
+- Used transfer learning and Resnet50 with imagenet weights as the base network was used to train the models.
 - Dropout layer and image augmentation techniques were used to help with severe overfitting.
 - Training time for each model varied from 1 to 2 days depending on the number of images per group.
 
