@@ -9,6 +9,8 @@ Landmark recognition API takes an input image of any size and predicts and dislp
 - Run app.py
 
 ### Data Pre-Processing and Modeling
+All jupyter notebooks and python files for this step can be found under jupyter_notebooks folder in this project
+
 #### Dataset
 - The dataset was acquired from Google Landmark Recognition 2019 Kaggle challenge.
 - The raw training dataset consisted of ~4 million images of different sizes with over 200k classes, total 500gb.
