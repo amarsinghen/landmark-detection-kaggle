@@ -1,0 +1,96 @@
+The model before this had following results:
+after 52 iterations accuracy was 0.13
+
+
+# Compiling
+model_group7.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
+
+train_datagen_group7 = ImageDataGenerator(
+    rescale=1/255,
+    rotation_range=60,
+    width_shift_range=0.1,
+    height_shift_range=0.1,
+    shear_range=0.2,
+    zoom_range=0.1,
+    horizontal_flip=True,
+    fill_mode='nearest')
+	
+#flow training images in batches of 128
+train_generator_group7 = train_datagen_group7.flow_from_directory(
+    '/tmp/group2_set_128/set_128/train/',
+    target_size=(128,128),
+    batch_size=512,
+    class_mode='categorical'
+)
+
+WARNING:tensorflow:From <ipython-input-14-b43aafba8e06>:4: Model.fit_generator (from tensorflow.python.keras.engine.training) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please use Model.fit, which supports generators.
+WARNING:tensorflow:sample_weight modes were coerced from
+  ...
+    to  
+  ['...']
+Train for 293 steps
+Epoch 1/100
+293/293 [==============================] - 638s 2s/step - loss: 9.5208 - accuracy: 6.6840e-05
+Epoch 2/100
+293/293 [==============================] - 609s 2s/step - loss: 9.1868 - accuracy: 2.4731e-04
+Epoch 3/100
+293/293 [==============================] - 610s 2s/step - loss: 8.7742 - accuracy: 5.8151e-04
+Epoch 4/100
+293/293 [==============================] - 610s 2s/step - loss: 8.5391 - accuracy: 0.0013
+Epoch 5/100
+293/293 [==============================] - 627s 2s/step - loss: 8.3308 - accuracy: 0.0022
+Epoch 6/100
+293/293 [==============================] - 628s 2s/step - loss: 8.1157 - accuracy: 0.0035
+Epoch 7/100
+293/293 [==============================] - 629s 2s/step - loss: 7.9306 - accuracy: 0.0052
+Epoch 8/100
+293/293 [==============================] - 630s 2s/step - loss: 7.7505 - accuracy: 0.0076
+Epoch 9/100
+293/293 [==============================] - 631s 2s/step - loss: 7.6414 - accuracy: 0.0097
+Epoch 10/100
+293/293 [==============================] - 625s 2s/step - loss: 7.5664 - accuracy: 0.0117
+Epoch 11/100
+293/293 [==============================] - 632s 2s/step - loss: 7.4690 - accuracy: 0.0142
+Epoch 12/100
+293/293 [==============================] - 632s 2s/step - loss: 7.3213 - accuracy: 0.0178
+Epoch 13/100
+293/293 [==============================] - 631s 2s/step - loss: 7.2135 - accuracy: 0.0209
+Epoch 14/100
+293/293 [==============================] - 633s 2s/step - loss: 7.1008 - accuracy: 0.0246
+Epoch 15/100
+293/293 [==============================] - 627s 2s/step - loss: 6.9964 - accuracy: 0.0289
+Epoch 16/100
+293/293 [==============================] - 631s 2s/step - loss: 6.9339 - accuracy: 0.0317
+Epoch 17/100
+293/293 [==============================] - 634s 2s/step - loss: 6.8059 - accuracy: 0.0373
+Epoch 18/100
+293/293 [==============================] - 630s 2s/step - loss: 6.7111 - accuracy: 0.0413
+Epoch 19/100
+293/293 [==============================] - 627s 2s/step - loss: 6.6823 - accuracy: 0.0440
+Epoch 20/100
+293/293 [==============================] - 634s 2s/step - loss: 6.8762 - accuracy: 0.0377
+Epoch 21/100
+293/293 [==============================] - 630s 2s/step - loss: 6.6088 - accuracy: 0.0479
+Epoch 22/100
+293/293 [==============================] - 632s 2s/step - loss: 6.4787 - accuracy: 0.0548
+Epoch 23/100
+ 27/293 [=>............................] - ETA: 9:45 - loss: 6.2992 - accuracy: 0.0665
+---------------------------------------------------------------------------
+KeyboardInterrupt                         Traceback (most recent call last)
+<ipython-input-14-b43aafba8e06> in <module>()
+      2     train_generator_group7,
+      3     epochs = 100,
+----> 4     verbose=1
+      5 )
+
+12 frames
+/tensorflow-2.1.0/python3.6/tensorflow_core/python/eager/execute.py in quick_execute(op_name, num_outputs, inputs, attrs, ctx, name)
+     59     tensors = pywrap_tensorflow.TFE_Py_Execute(ctx._handle, device_name,
+     60                                                op_name, inputs, attrs,
+---> 61                                                num_outputs)
+     62   except core._NotOkStatusException as e:
+     63     if name is not None:
+
+KeyboardInterrupt: 

@@ -1,0 +1,144 @@
+Best results for group1 with these parameters. Over 97% accuracy and still increasing bit by bit
+
+
+Inception_ResNetV2_MODEL=tf.keras.applications.InceptionResNetV2(input_shape=(128,128,3),
+                                               include_top=False,
+                                               weights='imagenet')
+											   
+model_group1=tf.keras.models.Sequential([
+                                  Inception_ResNetV2_MODEL,
+                                  tf.keras.layers.GlobalAveragePooling2D(),
+                                  tf.keras.layers.Flatten(),
+                                  tf.keras.layers.Dense(2048, activation='relu'),
+                                  tf.keras.layers.Dense(9274, activation='softmax')
+])
+model_group1.summary()
+
+optimizer = tf.keras.optimizers.Adam(learning_rate=0.0001)
+
+# Compiling
+model_group1.compile(optimizer=optimizer, loss='categorical_crossentropy', metrics=['accuracy'])
+
+train_datagen_group1 = ImageDataGenerator(
+    rescale=1/255,
+    rotation_range=45,
+    width_shift_range=0.1,
+    height_shift_range=0.1,
+    shear_range=0.2,
+    zoom_range=0.1,
+    horizontal_flip=True,
+    fill_mode='nearest')
+
+#flow training images in batches of 128
+train_generator_group1 = train_datagen_group1.flow_from_directory(
+    '../datasets/group1_set_128/set_128/train/',
+    target_size=(128,128),
+    batch_size=256,
+    class_mode='categorical'
+)
+history_group1 = model_group1.fit_generator(
+    train_generator_group1,
+    epochs = 30,
+    verbose=1
+)
+
+
+
+Found 897044 images belonging to 9274 classes.
+WARNING:tensorflow:From <ipython-input-9-0614150d356f>:26: Model.fit_generator (from tensorflow.python.keras.engine.training) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please use Model.fit, which supports generators.
+WARNING:tensorflow:sample_weight modes were coerced from
+  ...
+    to  
+  ['...']
+Train for 3505 steps
+Epoch 1/100
+3505/3505 [==============================] - 2209s 630ms/step - loss: 6.5179 - accuracy: 0.0903
+Epoch 2/100
+3505/3505 [==============================] - 2191s 625ms/step - loss: 4.5709 - accuracy: 0.2469
+Epoch 3/100
+3505/3505 [==============================] - 2197s 627ms/step - loss: 3.8119 - accuracy: 0.3381
+Epoch 4/100
+3505/3505 [==============================] - 2188s 624ms/step - loss: 3.2757 - accuracy: 0.4074
+Epoch 5/100
+3505/3505 [==============================] - 2168s 619ms/step - loss: 2.8410 - accuracy: 0.4662
+Epoch 6/100
+3505/3505 [==============================] - 2173s 620ms/step - loss: 2.4639 - accuracy: 0.5201
+Epoch 7/100
+3505/3505 [==============================] - 2163s 617ms/step - loss: 2.1313 - accuracy: 0.5696
+Epoch 8/100
+3505/3505 [==============================] - 2167s 618ms/step - loss: 1.8304 - accuracy: 0.6163
+Epoch 9/100
+3505/3505 [==============================] - 2193s 626ms/step - loss: 1.5600 - accuracy: 0.6613
+Epoch 10/100
+3505/3505 [==============================] - 2189s 625ms/step - loss: 1.3194 - accuracy: 0.7027
+Epoch 11/100
+3505/3505 [==============================] - 2170s 619ms/step - loss: 1.1027 - accuracy: 0.7421
+Epoch 12/100
+3505/3505 [==============================] - 2160s 616ms/step - loss: 0.9204 - accuracy: 0.7771
+Epoch 13/100
+3505/3505 [==============================] - 2162s 617ms/step - loss: 0.7685 - accuracy: 0.8083
+Epoch 14/100
+3505/3505 [==============================] - 2186s 624ms/step - loss: 0.6373 - accuracy: 0.8367
+Epoch 15/100
+3505/3505 [==============================] - 2196s 627ms/step - loss: 0.5353 - accuracy: 0.8600
+Epoch 16/100
+3505/3505 [==============================] - 2213s 631ms/step - loss: 0.4566 - accuracy: 0.8778
+Epoch 17/100
+3505/3505 [==============================] - 2184s 623ms/step - loss: 0.3951 - accuracy: 0.8924
+Epoch 18/100
+3505/3505 [==============================] - 2164s 617ms/step - loss: 0.3447 - accuracy: 0.9055
+Epoch 19/100
+3505/3505 [==============================] - 2168s 619ms/step - loss: 0.3062 - accuracy: 0.9152
+Epoch 20/100
+3505/3505 [==============================] - 2164s 617ms/step - loss: 0.2751 - accuracy: 0.9232
+Epoch 21/100
+3505/3505 [==============================] - 2163s 617ms/step - loss: 0.2506 - accuracy: 0.9300
+Epoch 22/100
+3505/3505 [==============================] - 2162s 617ms/step - loss: 0.2303 - accuracy: 0.9349
+Epoch 23/100
+3505/3505 [==============================] - 2163s 617ms/step - loss: 0.2130 - accuracy: 0.9394
+Epoch 24/100
+3505/3505 [==============================] - 2166s 618ms/step - loss: 0.1977 - accuracy: 0.9440
+Epoch 25/100
+3505/3505 [==============================] - 2164s 618ms/step - loss: 0.1867 - accuracy: 0.9467
+Epoch 26/100
+3505/3505 [==============================] - 2164s 617ms/step - loss: 0.1740 - accuracy: 0.9501
+Epoch 27/100
+3505/3505 [==============================] - 2166s 618ms/step - loss: 0.1638 - accuracy: 0.9530
+Epoch 28/100
+3505/3505 [==============================] - 2163s 617ms/step - loss: 0.1562 - accuracy: 0.9549
+Epoch 29/100
+3505/3505 [==============================] - 2165s 618ms/step - loss: 0.1473 - accuracy: 0.9575
+Epoch 30/100
+3505/3505 [==============================] - 2168s 618ms/step - loss: 0.1417 - accuracy: 0.9588
+Epoch 31/100
+3505/3505 [==============================] - 2159s 616ms/step - loss: 0.1335 - accuracy: 0.9612
+Epoch 32/100
+3505/3505 [==============================] - 2170s 619ms/step - loss: 0.1281 - accuracy: 0.9626
+Epoch 33/100
+3505/3505 [==============================] - 2164s 618ms/step - loss: 0.1231 - accuracy: 0.9640
+Epoch 34/100
+3505/3505 [==============================] - 2168s 619ms/step - loss: 0.1181 - accuracy: 0.9653
+Epoch 35/100
+3505/3505 [==============================] - 2166s 618ms/step - loss: 0.1134 - accuracy: 0.9666
+Epoch 36/100
+3505/3505 [==============================] - 2168s 618ms/step - loss: 0.1102 - accuracy: 0.9676
+Epoch 37/100
+3505/3505 [==============================] - 2168s 619ms/step - loss: 0.1066 - accuracy: 0.9688
+Epoch 38/100
+3505/3505 [==============================] - 2159s 616ms/step - loss: 0.1023 - accuracy: 0.9697
+Epoch 39/100
+3505/3505 [==============================] - 2163s 617ms/step - loss: 0.0982 - accuracy: 0.9709
+Epoch 40/100
+3505/3505 [==============================] - 2171s 619ms/step - loss: 0.0959 - accuracy: 0.9715
+Epoch 41/100
+2373/3505 [===================>..........] - ETA: 11:45 - loss: 0.0862 - accuracy: 0.9743
+---------------------------------------------------------------------------
+KeyboardInterrupt                         Traceback (most recent call last)
+<ipython-input-9-0614150d356f> in <module>
+     24     train_generator_group1,
+     25     epochs = 100,
+---> 26     verbose=1
+     27 )

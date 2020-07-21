@@ -1,10 +1,9 @@
-import pickle
 import numpy as np
 import pandas as pd
 from PIL import Image, ImageOps
 
 
-def simple_inference(loaded_model,uploaded_image_path):
+def simple_inference(loaded_model, uploaded_image_path):
 
     '''
     Doing simple inference for single uploaded image.

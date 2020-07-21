@@ -1,0 +1,162 @@
+05-28-2020
+Created 256 x 256 dataset with aspect ratio of images preserved from raw data. 
+
+Time to get list of files from current directory :  11.210103273391724
+['datasets/train_raw/0\\0\\0\\0000059611c7d079.jpg', 'datasets/train_raw/0\\0\\0\\0000070506c174cc.jpg', 'datasets/train_raw/0\\0\\0\\000008ae30de967e.jpg', 'datasets/train_raw/0\\0\\0\\000014b1f770f640.jpg', 'datasets/train_raw/0\\0\\0\\000015f76534add3.jpg']
+258277
+Images Processed :  [251936]
+Time to process images in the current directory :  2242.664076566696
+
+ datasets/train_raw/0
+
+Time to delete images in the current directory :  34.158092737197876
+
+Time to get list of files from current directory :  11.686987400054932
+['datasets/train_raw/1\\0\\0\\100001cdf8952af2.jpg', 'datasets/train_raw/1\\0\\0\\1000031c57e84984.jpg', 'datasets/train_raw/1\\0\\0\\10000643ddd87640.jpg', 'datasets/train_raw/1\\0\\0\\100008e889303dd3.jpg', 'datasets/train_raw/1\\0\\0\\10000a459717f4b1.jpg']
+258960
+Images Processed :  [252477]
+Time to process images in the current directory :  2260.501661300659
+
+ datasets/train_raw/1
+
+Time to delete images in the current directory :  34.076526403427124
+
+Time to get list of files from current directory :  21.855280876159668
+['datasets/train_raw/2\\0\\0\\20000153ca826a49.jpg', 'datasets/train_raw/2\\0\\0\\20000c6cc7757a78.jpg', 'datasets/train_raw/2\\0\\0\\20000c92f4ffbb98.jpg', 'datasets/train_raw/2\\0\\0\\2000117b6776a792.jpg', 'datasets/train_raw/2\\0\\0\\2000143aaa73c26a.jpg']
+258371
+Images Processed :  [252009]
+Time to process images in the current directory :  2245.423106908798
+
+ datasets/train_raw/2
+
+Time to delete images in the current directory :  34.834805488586426
+
+Time to get list of files from current directory :  22.203474283218384
+['datasets/train_raw/3\\0\\0\\30000e1088c8b1a8.jpg', 'datasets/train_raw/3\\0\\0\\30000ec0280c6eca.jpg', 'datasets/train_raw/3\\0\\0\\300011592eb1698e.jpg', 'datasets/train_raw/3\\0\\0\\3000179a56d92ab9.jpg', 'datasets/train_raw/3\\0\\0\\300018a3f2c53762.jpg']
+257916
+Images Processed :  [251580]
+Time to process images in the current directory :  2239.254825592041
+
+ datasets/train_raw/3
+
+Time to delete images in the current directory :  34.30295133590698
+
+Time to get list of files from current directory :  21.967660427093506
+['datasets/train_raw/4\\0\\0\\40000238d9a0dce9.jpg', 'datasets/train_raw/4\\0\\0\\4000025e2dcff06b.jpg', 'datasets/train_raw/4\\0\\0\\4000039befc55c12.jpg', 'datasets/train_raw/4\\0\\0\\40000641f1218515.jpg', 'datasets/train_raw/4\\0\\0\\400006e5e6aa472f.jpg']
+257966
+Images Processed :  [251630]
+Time to process images in the current directory :  2258.4582126140594
+
+ datasets/train_raw/4
+
+Time to delete images in the current directory :  36.8615038394928
+
+Time to get list of files from current directory :  21.46076774597168
+['datasets/train_raw/5\\0\\0\\50000a346e0e0b09.jpg', 'datasets/train_raw/5\\0\\0\\50000bbaf5115641.jpg', 'datasets/train_raw/5\\0\\0\\500010a7e6a160b2.jpg', 'datasets/train_raw/5\\0\\0\\500019eb689da9b5.jpg', 'datasets/train_raw/5\\0\\0\\50001b0d12c3943d.jpg']
+258046
+Images Processed :  [251838]
+Time to process images in the current directory :  2273.0764186382294
+
+ datasets/train_raw/5
+
+Time to delete images in the current directory :  35.834131479263306
+
+Time to get list of files from current directory :  21.75378108024597
+['datasets/train_raw/6\\0\\0\\600008d145ada13a.jpg', 'datasets/train_raw/6\\0\\0\\60000b0c22ef7c32.jpg', 'datasets/train_raw/6\\0\\0\\60000b3debc0dbd2.jpg', 'datasets/train_raw/6\\0\\0\\60000e8e4a1ba3ef.jpg', 'datasets/train_raw/6\\0\\0\\60000e993a7b5fad.jpg']
+258090
+Images Processed :  [251637]
+Time to process images in the current directory :  2263.881913661957
+
+ datasets/train_raw/6
+
+Time to delete images in the current directory :  34.91356921195984
+
+Time to get list of files from current directory :  21.01080322265625
+['datasets/train_raw/7\\0\\0\\7000022fe6fb2725.jpg', 'datasets/train_raw/7\\0\\0\\7000026008c4fd15.jpg', 'datasets/train_raw/7\\0\\0\\700006610b71d3b9.jpg', 'datasets/train_raw/7\\0\\0\\70000b0a58db1820.jpg', 'datasets/train_raw/7\\0\\0\\70000d3083cdd5c4.jpg']
+258471
+Images Processed :  [252117]
+Time to process images in the current directory :  2332.554109096527
+
+ datasets/train_raw/7
+
+Time to delete images in the current directory :  35.9068603515625
+
+Time to get list of files from current directory :  21.811232805252075
+['datasets/train_raw/8\\0\\0\\800006316768a007.jpg', 'datasets/train_raw/8\\0\\0\\80000a58b059d4cf.jpg', 'datasets/train_raw/8\\0\\0\\80000c96413df549.jpg', 'datasets/train_raw/8\\0\\0\\80000f5a90982b05.jpg', 'datasets/train_raw/8\\0\\0\\8000136bd9516e9e.jpg']
+258210
+Images Processed :  [251887]
+Time to process images in the current directory :  2293.3219668865204
+
+ datasets/train_raw/8
+
+Time to delete images in the current directory :  35.24954342842102
+
+Time to get list of files from current directory :  21.600467443466187
+['datasets/train_raw/9\\0\\0\\9000026aa8b4f501.jpg', 'datasets/train_raw/9\\0\\0\\9000048b6bed8cab.jpg', 'datasets/train_raw/9\\0\\0\\900004b94f7a6805.jpg', 'datasets/train_raw/9\\0\\0\\90000761b786088d.jpg', 'datasets/train_raw/9\\0\\0\\90000f7122fdb362.jpg']
+258014
+Images Processed :  [251694]
+Time to process images in the current directory :  2294.7620894908905
+
+ datasets/train_raw/9
+
+Time to delete images in the current directory :  37.43293857574463
+
+Time to get list of files from current directory :  24.132858753204346
+['datasets/train_raw/a\\0\\0\\a000035ae4c6d7b7.jpg', 'datasets/train_raw/a\\0\\0\\a00005168be8f76a.jpg', 'datasets/train_raw/a\\0\\0\\a000061cfa1258b2.jpg', 'datasets/train_raw/a\\0\\0\\a0000650e77769cc.jpg', 'datasets/train_raw/a\\0\\0\\a00009431492c304.jpg']
+258200
+Images Processed :  [251770]
+Time to process images in the current directory :  2301.0882251262665
+
+ datasets/train_raw/a
+
+Time to delete images in the current directory :  37.125648498535156
+
+Time to get list of files from current directory :  21.04821467399597
+['datasets/train_raw/b\\0\\0\\b00006e03e61e8f7.jpg', 'datasets/train_raw/b\\0\\0\\b0000746eeec502a.jpg', 'datasets/train_raw/b\\0\\0\\b000074d5172b9e2.jpg', 'datasets/train_raw/b\\0\\0\\b0000b66f3b29d59.jpg', 'datasets/train_raw/b\\0\\0\\b0000bd515735f35.jpg']
+257548
+Images Processed :  [251286]
+Time to process images in the current directory :  2305.0772321224213
+
+ datasets/train_raw/b
+
+Time to delete images in the current directory :  35.84997487068176
+
+Time to get list of files from current directory :  22.028913974761963
+['datasets/train_raw/c\\0\\0\\c000048dbf245abf.jpg', 'datasets/train_raw/c\\0\\0\\c000058274e6c7c1.jpg', 'datasets/train_raw/c\\0\\0\\c000082667c14a72.jpg', 'datasets/train_raw/c\\0\\0\\c00008d946d82ac4.jpg', 'datasets/train_raw/c\\0\\0\\c0000ae68f559868.jpg']
+259256
+Images Processed :  [253010]
+Time to process images in the current directory :  2330.0847392082214
+
+ datasets/train_raw/c
+
+Time to delete images in the current directory :  36.09672808647156
+
+Time to get list of files from current directory :  21.208074808120728
+['datasets/train_raw/d\\0\\0\\d00004b4f6cf69d6.jpg', 'datasets/train_raw/d\\0\\0\\d0000998dd0e36ef.jpg', 'datasets/train_raw/d\\0\\0\\d000106b1b47ceb8.jpg', 'datasets/train_raw/d\\0\\0\\d0001157c96016dc.jpg', 'datasets/train_raw/d\\0\\0\\d0001b52501b15ef.jpg']
+258226
+Images Processed :  [251897]
+Time to process images in the current directory :  2328.8633806705475
+
+ datasets/train_raw/d
+
+Time to delete images in the current directory :  35.47143077850342
+
+Time to get list of files from current directory :  21.04466986656189
+['datasets/train_raw/e\\0\\0\\e00002a0f14de5b3.jpg', 'datasets/train_raw/e\\0\\0\\e00002a2faed0b41.jpg', 'datasets/train_raw/e\\0\\0\\e0000586346ec8cc.jpg', 'datasets/train_raw/e\\0\\0\\e000068a8dc23318.jpg', 'datasets/train_raw/e\\0\\0\\e00008fff47c11a2.jpg']
+258916
+Images Processed :  [252357]
+Time to process images in the current directory :  2349.5567440986633
+
+ datasets/train_raw/e
+
+Time to delete images in the current directory :  37.49030089378357
+
+Time to get list of files from current directory :  21.50001549720764
+['datasets/train_raw/f\\0\\0\\f000004306ea3c24.jpg', 'datasets/train_raw/f\\0\\0\\f00001b823c7dee6.jpg', 'datasets/train_raw/f\\0\\0\\f00003a4ad9095b5.jpg', 'datasets/train_raw/f\\0\\0\\f000127ec5f71196.jpg', 'datasets/train_raw/f\\0\\0\\f0001b9dd9a66c71.jpg']
+258447
+Images Processed :  [252009]
+Time to process images in the current directory :  2351.388707637787
+
+ datasets/train_raw/f
+
+Time to delete images in the current directory :  39.53798985481262

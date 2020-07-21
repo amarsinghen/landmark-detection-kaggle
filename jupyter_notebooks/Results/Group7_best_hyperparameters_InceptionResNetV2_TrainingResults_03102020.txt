@@ -1,0 +1,317 @@
+model_group7=tf.keras.models.Sequential([
+                                  Inception_ResNetV2_MODEL,
+                                  tf.keras.layers.GlobalAveragePooling2D(),
+                                  tf.keras.layers.Flatten(),
+                                  tf.keras.layers.Dense(1024, activation='relu'),
+                                  tf.keras.layers.Dense(13911, activation='softmax')
+])
+model_group7.summary()
+
+optimizer = tf.keras.optimizers.Adam(learning_rate=0.0001)
+
+# Compiling
+model_group7.compile(optimizer=optimizer, loss='categorical_crossentropy', metrics=['accuracy'])
+
+train_datagen_group7 = ImageDataGenerator(
+    rescale=1/255,
+    rotation_range=45,
+    width_shift_range=0.1,
+    height_shift_range=0.1,
+    shear_range=0.2,
+    zoom_range=0.1,
+    horizontal_flip=True,
+    fill_mode='nearest')
+
+#flow training images in batches of 128
+train_generator_group7 = train_datagen_group7.flow_from_directory(
+    '/tmp/group2_set_128/set_128/train/',
+    target_size=(128,128),
+    batch_size=256,
+    class_mode='categorical'
+)
+
+WARNING:tensorflow:sample_weight modes were coerced from
+  ...
+    to  
+  ['...']
+Train for 585 steps
+Epoch 1/100
+585/585 [==============================] - 551s 942ms/step - loss: 9.2826 - accuracy: 7.0182e-04
+Epoch 2/100
+585/585 [==============================] - 537s 918ms/step - loss: 7.1280 - accuracy: 0.0417
+Epoch 3/100
+585/585 [==============================] - 541s 925ms/step - loss: 5.4549 - accuracy: 0.1508
+Epoch 4/100
+ 98/585 [====>.........................] - ETA: 7:30 - loss: 4.4393 - accuracy: 0.2525
+---------------------------------------------------------------------------
+KeyboardInterrupt                         Traceback (most recent call last)
+<ipython-input-19-b43aafba8e06> in <module>()
+      2     train_generator_group7,
+      3     epochs = 100,
+
+
+
+
+
+##################################################################################
+With last layer size as 4096
+
+model_group7=tf.keras.models.Sequential([
+                                  Inception_ResNetV2_MODEL,
+                                  tf.keras.layers.GlobalAveragePooling2D(),
+                                  tf.keras.layers.Flatten(),
+                                  tf.keras.layers.Dense(4096, activation='relu'),
+                                  tf.keras.layers.Dense(13911, activation='softmax')
+])
+model_group7.summary()
+	  
+WARNING:tensorflow:From <ipython-input-13-b43aafba8e06>:4: Model.fit_generator (from tensorflow.python.keras.engine.training) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please use Model.fit, which supports generators.
+WARNING:tensorflow:sample_weight modes were coerced from
+  ...
+    to  
+  ['...']
+Train for 585 steps
+Epoch 1/100
+585/585 [==============================] - 553s 946ms/step - loss: 9.3803 - accuracy: 4.8794e-04
+Epoch 2/100
+585/585 [==============================] - 540s 923ms/step - loss: 7.0718 - accuracy: 0.0521
+Epoch 3/100
+585/585 [==============================] - 540s 923ms/step - loss: 4.8692 - accuracy: 0.2092
+Epoch 4/100
+120/585 [=====>........................] - ETA: 7:08 - loss: 3.6132 - accuracy: 0.3544
+---------------------------------------------------------------------------
+KeyboardInterrupt                         Traceback (most recent call last)
+<ipython-input-13-b43aafba8e06> in <module>()
+      2     train_generator_group7,
+      3     epochs = 100,
+----> 4     verbose=1
+      5 )
+	  
+##################################################################################
+With last layer size as 8192
+
+model_group7=tf.keras.models.Sequential([
+                                  Inception_ResNetV2_MODEL,
+                                  tf.keras.layers.GlobalAveragePooling2D(),
+                                  tf.keras.layers.Flatten(),
+                                  tf.keras.layers.Dense(8192, activation='relu'),
+                                  tf.keras.layers.Dense(13911, activation='softmax')
+])
+model_group7.summary()
+
+WARNING:tensorflow:From <ipython-input-13-b43aafba8e06>:4: Model.fit_generator (from tensorflow.python.keras.engine.training) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please use Model.fit, which supports generators.
+WARNING:tensorflow:sample_weight modes were coerced from
+  ...
+    to  
+  ['...']
+Train for 585 steps
+Epoch 1/100
+585/585 [==============================] - 553s 945ms/step - loss: 9.5184 - accuracy: 1.2031e-04
+Epoch 2/100
+585/585 [==============================] - 540s 923ms/step - loss: 7.7798 - accuracy: 0.0312
+Epoch 3/100
+394/585 [===================>..........] - ETA: 2:56 - loss: 5.1404 - accuracy: 0.1805
+---------------------------------------------------------------------------
+KeyboardInterrupt                         Traceback (most recent call last)
+<ipython-input-13-b43aafba8e06> in <module>()
+      2     train_generator_group7,
+      3     epochs = 100,
+----> 4     verbose=1
+      5 )
+	  
+##################################################################################
+With last layer size as 4096, lr=0.00001
+
+model_group7=tf.keras.models.Sequential([
+                                  Inception_ResNetV2_MODEL,
+                                  tf.keras.layers.GlobalAveragePooling2D(),
+                                  tf.keras.layers.Flatten(),
+                                  tf.keras.layers.Dense(4096, activation='relu'),
+                                  tf.keras.layers.Dense(13911, activation='softmax')
+])
+model_group7.summary()
+
+
+WARNING:tensorflow:From <ipython-input-13-b43aafba8e06>:4: Model.fit_generator (from tensorflow.python.keras.engine.training) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please use Model.fit, which supports generators.
+WARNING:tensorflow:sample_weight modes were coerced from
+  ...
+    to  
+  ['...']
+Train for 585 steps
+Epoch 1/100
+585/585 [==============================] - 556s 951ms/step - loss: 9.5545 - accuracy: 1.1363e-04
+Epoch 2/100
+384/585 [==================>...........] - ETA: 3:05 - loss: 9.4820 - accuracy: 8.5672e-04
+---------------------------------------------------------------------------
+KeyboardInterrupt                         Traceback (most recent call last)
+<ipython-input-13-b43aafba8e06> in <module>()
+      2     train_generator_group7,
+      3     epochs = 100,
+----> 4     verbose=1
+      5 )
+	  
+	  
+	  
+	  
+##################################################################################
+With last layer size as 4096, lr=0.0001
+	  
+	  
+	  
+	  
+	  
+Please use Model.fit, which supports generators.
+WARNING:tensorflow:sample_weight modes were coerced from
+  ...
+    to  
+  ['...']
+Train for 585 steps
+Epoch 1/100
+585/585 [==============================] - 563s 962ms/step - loss: 9.4240 - accuracy: 3.6762e-04
+Epoch 2/100
+585/585 [==============================] - 544s 929ms/step - loss: 7.1773 - accuracy: 0.0501
+Epoch 3/100
+585/585 [==============================] - 541s 925ms/step - loss: 4.8626 - accuracy: 0.2117
+Epoch 4/100
+585/585 [==============================] - 539s 921ms/step - loss: 3.5389 - accuracy: 0.3628
+Epoch 5/100
+585/585 [==============================] - 541s 924ms/step - loss: 2.5682 - accuracy: 0.4974
+Epoch 6/100
+585/585 [==============================] - 541s 925ms/step - loss: 1.8049 - accuracy: 0.6215
+Epoch 7/100
+366/585 [=================>............] - ETA: 3:21 - loss: 1.1523 - accuracy: 0.7475
+
+####################################################################################################
+with 55 iterations on local machine
+
+WARNING:tensorflow:From <ipython-input-10-b43aafba8e06>:4: Model.fit_generator (from tensorflow.python.keras.engine.training) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please use Model.fit, which supports generators.
+WARNING:tensorflow:sample_weight modes were coerced from
+  ...
+    to  
+  ['...']
+Train for 585 steps
+Epoch 1/100
+585/585 [==============================] - 570s 974ms/step - loss: 9.4432 - accuracy: 3.2752e-04
+Epoch 2/100
+585/585 [==============================] - 367s 628ms/step - loss: 7.2916 - accuracy: 0.0448
+Epoch 3/100
+585/585 [==============================] - 364s 622ms/step - loss: 4.9496 - accuracy: 0.2022
+Epoch 4/100
+585/585 [==============================] - 365s 623ms/step - loss: 3.6122 - accuracy: 0.3520
+Epoch 5/100
+585/585 [==============================] - 367s 627ms/step - loss: 2.6291 - accuracy: 0.4865
+Epoch 6/100
+585/585 [==============================] - 365s 624ms/step - loss: 1.8477 - accuracy: 0.6139
+Epoch 7/100
+585/585 [==============================] - 364s 622ms/step - loss: 1.2371 - accuracy: 0.7280
+Epoch 8/100
+585/585 [==============================] - 366s 626ms/step - loss: 0.7904 - accuracy: 0.8221
+Epoch 9/100
+585/585 [==============================] - 366s 626ms/step - loss: 0.4927 - accuracy: 0.8904
+Epoch 10/100
+585/585 [==============================] - 365s 624ms/step - loss: 0.3273 - accuracy: 0.9289
+Epoch 11/100
+585/585 [==============================] - 364s 623ms/step - loss: 0.2313 - accuracy: 0.9510
+Epoch 12/100
+585/585 [==============================] - 362s 618ms/step - loss: 0.1821 - accuracy: 0.9612
+Epoch 13/100
+585/585 [==============================] - 361s 618ms/step - loss: 0.1508 - accuracy: 0.9684
+Epoch 14/100
+585/585 [==============================] - 364s 623ms/step - loss: 0.1315 - accuracy: 0.9720
+Epoch 15/100
+585/585 [==============================] - 366s 626ms/step - loss: 0.1182 - accuracy: 0.9741
+Epoch 16/100
+585/585 [==============================] - 364s 623ms/step - loss: 0.1069 - accuracy: 0.9767
+Epoch 17/100
+585/585 [==============================] - 368s 628ms/step - loss: 0.0969 - accuracy: 0.9784
+Epoch 18/100
+585/585 [==============================] - 365s 624ms/step - loss: 0.0871 - accuracy: 0.9805
+Epoch 19/100
+585/585 [==============================] - 362s 618ms/step - loss: 0.0818 - accuracy: 0.9816
+Epoch 20/100
+585/585 [==============================] - 361s 618ms/step - loss: 0.0773 - accuracy: 0.9830
+Epoch 21/100
+585/585 [==============================] - 362s 619ms/step - loss: 0.0644 - accuracy: 0.9855
+Epoch 22/100
+585/585 [==============================] - 365s 624ms/step - loss: 0.0645 - accuracy: 0.9851
+Epoch 23/100
+585/585 [==============================] - 362s 620ms/step - loss: 0.0595 - accuracy: 0.9860
+Epoch 24/100
+585/585 [==============================] - 361s 617ms/step - loss: 0.0578 - accuracy: 0.9867
+Epoch 25/100
+585/585 [==============================] - 361s 617ms/step - loss: 0.0486 - accuracy: 0.9892
+Epoch 26/100
+585/585 [==============================] - 361s 617ms/step - loss: 0.0465 - accuracy: 0.9895
+Epoch 27/100
+585/585 [==============================] - 360s 616ms/step - loss: 0.0476 - accuracy: 0.9887
+Epoch 28/100
+585/585 [==============================] - 360s 616ms/step - loss: 0.0450 - accuracy: 0.9892
+Epoch 29/100
+585/585 [==============================] - 361s 616ms/step - loss: 0.0396 - accuracy: 0.9908
+Epoch 30/100
+585/585 [==============================] - 360s 615ms/step - loss: 0.0413 - accuracy: 0.9903
+Epoch 31/100
+585/585 [==============================] - 361s 618ms/step - loss: 0.0392 - accuracy: 0.9907
+Epoch 32/100
+585/585 [==============================] - 362s 619ms/step - loss: 0.0355 - accuracy: 0.9918
+Epoch 33/100
+585/585 [==============================] - 361s 617ms/step - loss: 0.0324 - accuracy: 0.9924
+Epoch 34/100
+585/585 [==============================] - 366s 626ms/step - loss: 0.0310 - accuracy: 0.9928
+Epoch 35/100
+585/585 [==============================] - 364s 621ms/step - loss: 0.0308 - accuracy: 0.9930
+Epoch 36/100
+585/585 [==============================] - 361s 618ms/step - loss: 0.0300 - accuracy: 0.9930
+Epoch 37/100
+585/585 [==============================] - 361s 617ms/step - loss: 0.0297 - accuracy: 0.9931
+Epoch 38/100
+585/585 [==============================] - 361s 618ms/step - loss: 0.0262 - accuracy: 0.9938
+Epoch 39/100
+585/585 [==============================] - 361s 618ms/step - loss: 0.0265 - accuracy: 0.9940
+Epoch 40/100
+585/585 [==============================] - 361s 617ms/step - loss: 0.0256 - accuracy: 0.9939
+Epoch 41/100
+585/585 [==============================] - 361s 617ms/step - loss: 0.0241 - accuracy: 0.9943
+Epoch 42/100
+585/585 [==============================] - 361s 617ms/step - loss: 0.0225 - accuracy: 0.9949
+Epoch 43/100
+585/585 [==============================] - 361s 616ms/step - loss: 0.0218 - accuracy: 0.9946
+Epoch 44/100
+585/585 [==============================] - 361s 617ms/step - loss: 0.0222 - accuracy: 0.9948
+Epoch 45/100
+585/585 [==============================] - 361s 617ms/step - loss: 0.0191 - accuracy: 0.9955
+Epoch 46/100
+585/585 [==============================] - 362s 619ms/step - loss: 0.0200 - accuracy: 0.9951
+Epoch 47/100
+585/585 [==============================] - 361s 617ms/step - loss: 0.0207 - accuracy: 0.9948
+Epoch 48/100
+585/585 [==============================] - 361s 617ms/step - loss: 0.0179 - accuracy: 0.9959
+Epoch 49/100
+585/585 [==============================] - 362s 618ms/step - loss: 0.0170 - accuracy: 0.9960
+Epoch 50/100
+585/585 [==============================] - 361s 618ms/step - loss: 0.0170 - accuracy: 0.9961
+Epoch 51/100
+585/585 [==============================] - 362s 619ms/step - loss: 0.0156 - accuracy: 0.9962
+Epoch 52/100
+585/585 [==============================] - 361s 618ms/step - loss: 0.0160 - accuracy: 0.9963
+Epoch 53/100
+585/585 [==============================] - 362s 618ms/step - loss: 0.0163 - accuracy: 0.9961
+Epoch 54/100
+585/585 [==============================] - 362s 618ms/step - loss: 0.0167 - accuracy: 0.9959
+Epoch 55/100
+176/585 [========>.....................] - ETA: 4:14 - loss: 0.0144 - accuracy: 0.9965
+---------------------------------------------------------------------------
+KeyboardInterrupt                         Traceback (most recent call last)
+<ipython-input-10-b43aafba8e06> in <module>
+      2     train_generator_group7,
+      3     epochs = 100,
+----> 4     verbose=1
+

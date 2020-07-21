@@ -4,11 +4,16 @@ Flask backend for image-to-image search pipeline.
 
 #Import dependencies
 import os
+# Since there is no training, we want to run this code only on cpu save gpu resources
+os.environ["CUDA_VISIBLE_DEVICES"]="-1"
 import tensorflow as tf
 from inference import simple_inference
 
 #import Flask dependencies
 from flask import Flask, request, render_template, send_from_directory
+
+# Clearing keras session in the beginning
+tf.keras.backend.clear_session()
 
 #Set root dir
 APP_ROOT = os.path.dirname(os.path.abspath(__file__))

@@ -1,0 +1,177 @@
+Initial Data cleaning without Aspect Ratio to size 448x448
+
+Time to get list of files from current directory :  24.830138206481934
+['train/0\\0\\0\\0000059611c7d079.jpg', 'train/0\\0\\0\\0000070506c174cc.jpg', 'train/0\\0\\0\\000008ae30de967e.jpg', 'train/0\\0\\0\\000014b1f770f640.jpg', 'train/0\\0\\0\\000015f76534add3.jpg']
+258277
+
+ [244965]
+Time to process images in the current directory :  4296.903072834015
+
+ train/0
+
+Time to delete images in the current directory :  303.8814215660095
+
+Time to get list of files from current directory :  176.34428358078003
+['train/1\\0\\0\\100001cdf8952af2.jpg', 'train/1\\0\\0\\1000031c57e84984.jpg', 'train/1\\0\\0\\10000643ddd87640.jpg', 'train/1\\0\\0\\100008e889303dd3.jpg', 'train/1\\0\\0\\10000a459717f4b1.jpg']
+258960
+
+ [245474]
+Time to process images in the current directory :  5235.213369607925
+
+ train/1
+
+Time to delete images in the current directory :  280.94770431518555
+
+Time to get list of files from current directory :  171.4157636165619
+['train/2\\0\\0\\20000153ca826a49.jpg', 'train/2\\0\\0\\20000c6cc7757a78.jpg', 'train/2\\0\\0\\20000c92f4ffbb98.jpg', 'train/2\\0\\0\\2000117b6776a792.jpg', 'train/2\\0\\0\\2000143aaa73c26a.jpg']
+258371
+
+ [245066]
+Time to process images in the current directory :  5244.526304244995
+
+ train/2
+
+Time to delete images in the current directory :  278.29233288764954
+
+Time to get list of files from current directory :  171.0648708343506
+['train/3\\0\\0\\30000e1088c8b1a8.jpg', 'train/3\\0\\0\\30000ec0280c6eca.jpg', 'train/3\\0\\0\\300011592eb1698e.jpg', 'train/3\\0\\0\\3000179a56d92ab9.jpg', 'train/3\\0\\0\\300018a3f2c53762.jpg']
+257916
+
+ [244558]
+Time to process images in the current directory :  5246.94376039505
+
+ train/3
+
+Time to delete images in the current directory :  171.38273763656616
+
+Time to get list of files from current directory :  34.355886936187744
+['train/4\\0\\0\\40000238d9a0dce9.jpg', 'train/4\\0\\0\\4000025e2dcff06b.jpg', 'train/4\\0\\0\\4000039befc55c12.jpg', 'train/4\\0\\0\\40000641f1218515.jpg', 'train/4\\0\\0\\400006e5e6aa472f.jpg']
+257966
+
+ [244779]
+Time to process images in the current directory :  4689.362884044647
+
+ train/4
+
+Time to delete images in the current directory :  177.5835313796997
+
+Time to get list of files from current directory :  33.89130091667175
+['train/5\\0\\0\\50000a346e0e0b09.jpg', 'train/5\\0\\0\\50000bbaf5115641.jpg', 'train/5\\0\\0\\500010a7e6a160b2.jpg', 'train/5\\0\\0\\500019eb689da9b5.jpg', 'train/5\\0\\0\\50001b0d12c3943d.jpg']
+258046
+
+ [244933]
+Time to process images in the current directory :  4662.792284011841
+
+ train/5
+
+Time to delete images in the current directory :  174.73848223686218
+
+Time to get list of files from current directory :  33.17423057556152
+['train/6\\0\\0\\600008d145ada13a.jpg', 'train/6\\0\\0\\60000b0c22ef7c32.jpg', 'train/6\\0\\0\\60000b3debc0dbd2.jpg', 'train/6\\0\\0\\60000e8e4a1ba3ef.jpg', 'train/6\\0\\0\\60000e993a7b5fad.jpg']
+258090
+
+ [244690]
+Time to process images in the current directory :  4635.214867591858
+
+ train/6
+
+Time to delete images in the current directory :  170.68329691886902
+
+Time to get list of files from current directory :  32.27380871772766
+['train/7\\0\\0\\7000022fe6fb2725.jpg', 'train/7\\0\\0\\7000026008c4fd15.jpg', 'train/7\\0\\0\\700006610b71d3b9.jpg', 'train/7\\0\\0\\70000b0a58db1820.jpg', 'train/7\\0\\0\\70000d3083cdd5c4.jpg']
+258471
+
+ [245115]
+Time to process images in the current directory :  4694.117776632309
+
+ train/7
+
+Time to delete images in the current directory :  177.61417818069458
+
+Time to get list of files from current directory :  33.90095043182373
+['train/8\\0\\0\\800006316768a007.jpg', 'train/8\\0\\0\\80000a58b059d4cf.jpg', 'train/8\\0\\0\\80000c96413df549.jpg', 'train/8\\0\\0\\80000f5a90982b05.jpg', 'train/8\\0\\0\\8000136bd9516e9e.jpg']
+258210
+
+ [245092]
+Time to process images in the current directory :  4635.893538951874
+
+ train/8
+
+Time to delete images in the current directory :  183.5050642490387
+
+Time to get list of files from current directory :  32.25083303451538
+['train/9\\0\\0\\9000026aa8b4f501.jpg', 'train/9\\0\\0\\9000048b6bed8cab.jpg', 'train/9\\0\\0\\900004b94f7a6805.jpg', 'train/9\\0\\0\\90000761b786088d.jpg', 'train/9\\0\\0\\90000f7122fdb362.jpg']
+258014
+
+ [244835]
+Time to process images in the current directory :  4579.087768793106
+
+ train/9
+
+Time to delete images in the current directory :  172.54212284088135
+
+Time to get list of files from current directory :  31.849759578704834
+['train/a\\0\\0\\a000035ae4c6d7b7.jpg', 'train/a\\0\\0\\a00005168be8f76a.jpg', 'train/a\\0\\0\\a000061cfa1258b2.jpg', 'train/a\\0\\0\\a0000650e77769cc.jpg', 'train/a\\0\\0\\a00009431492c304.jpg']
+258200
+
+ [244772]
+Time to process images in the current directory :  4621.264064073563
+
+ train/a
+
+Time to delete images in the current directory :  174.97242307662964
+
+Time to get list of files from current directory :  32.047396659851074
+['train/b\\0\\0\\b00006e03e61e8f7.jpg', 'train/b\\0\\0\\b0000746eeec502a.jpg', 'train/b\\0\\0\\b000074d5172b9e2.jpg', 'train/b\\0\\0\\b0000b66f3b29d59.jpg', 'train/b\\0\\0\\b0000bd515735f35.jpg']
+257548
+
+ [244207]
+Time to process images in the current directory :  5157.25475525856
+
+ train/b
+
+Time to delete images in the current directory :  176.89845490455627
+
+Time to get list of files from current directory :  32.455053091049194
+['train/c\\0\\0\\c000048dbf245abf.jpg', 'train/c\\0\\0\\c000058274e6c7c1.jpg', 'train/c\\0\\0\\c000082667c14a72.jpg', 'train/c\\0\\0\\c00008d946d82ac4.jpg', 'train/c\\0\\0\\c0000ae68f559868.jpg']
+259256
+
+ [245972]
+Time to process images in the current directory :  4760.200986862183
+
+ train/c
+
+Time to delete images in the current directory :  182.36652445793152
+
+Time to get list of files from current directory :  33.375221967697144
+['train/d\\0\\0\\d00004b4f6cf69d6.jpg', 'train/d\\0\\0\\d0000998dd0e36ef.jpg', 'train/d\\0\\0\\d000106b1b47ceb8.jpg', 'train/d\\0\\0\\d0001157c96016dc.jpg', 'train/d\\0\\0\\d0001b52501b15ef.jpg']
+258226
+
+ [245093]
+Time to process images in the current directory :  4772.299672603607
+
+ train/d
+
+Time to delete images in the current directory :  183.0445511341095
+
+Time to get list of files from current directory :  32.894004344940186
+['train/e\\0\\0\\e00002a0f14de5b3.jpg', 'train/e\\0\\0\\e00002a2faed0b41.jpg', 'train/e\\0\\0\\e0000586346ec8cc.jpg', 'train/e\\0\\0\\e000068a8dc23318.jpg', 'train/e\\0\\0\\e00008fff47c11a2.jpg']
+258916
+
+ [245469]
+Time to process images in the current directory :  4951.090821266174
+
+ train/e
+
+Time to delete images in the current directory :  186.00882244110107
+
+Time to get list of files from current directory :  32.981762409210205
+['train/f\\0\\0\\f000004306ea3c24.jpg', 'train/f\\0\\0\\f00001b823c7dee6.jpg', 'train/f\\0\\0\\f00003a4ad9095b5.jpg', 'train/f\\0\\0\\f000127ec5f71196.jpg', 'train/f\\0\\0\\f0001b9dd9a66c71.jpg']
+258447
+
+ [245000]
+Time to process images in the current directory :  4923.681090116501
+
+ train/f
+
+Time to delete images in the current directory :  187.37712860107422

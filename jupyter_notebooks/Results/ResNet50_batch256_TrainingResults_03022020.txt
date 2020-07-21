@@ -1,0 +1,45 @@
+RESNET50 results. batch size 256
+Model: "sequential"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+resnet50 (Model)             (None, 4, 4, 2048)        23587712  
+_________________________________________________________________
+global_average_pooling2d (Gl (None, 2048)              0         
+_________________________________________________________________
+dropout (Dropout)            (None, 2048)              0         
+_________________________________________________________________
+flatten (Flatten)            (None, 2048)              0         
+_________________________________________________________________
+dense (Dense)                (None, 512)               1049088   
+_________________________________________________________________
+dense_1 (Dense)              (None, 92740)             47575620  
+=================================================================
+Total params: 72,212,420
+Trainable params: 72,159,300
+Non-trainable params: 53,120
+_________________________________________________________________
+
+Found 3064239 images belonging to 92740 classes.
+WARNING:tensorflow:From <ipython-input-7-bab7bae77c60>:22: Model.fit_generator (from tensorflow.python.keras.engine.training) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please use Model.fit, which supports generators.
+WARNING:tensorflow:sample_weight modes were coerced from
+  ...
+    to  
+  ['...']
+Train for 11970 steps
+Epoch 1/5
+11970/11970 [==============================] - 8119s 678ms/step - loss: 11.0944 - accuracy: 1.1748e-04
+Epoch 2/5
+11970/11970 [==============================] - 7873s 658ms/step - loss: 10.4670 - accuracy: 0.0011
+Epoch 3/5
+11970/11970 [==============================] - 7875s 658ms/step - loss: 9.7026 - accuracy: 0.0052
+Epoch 4/5
+11970/11970 [==============================] - 7874s 658ms/step - loss: 9.1130 - accuracy: 0.0117
+Epoch 5/5
+11970/11970 [==============================] - 7819s 653ms/step - loss: 8.6160 - accuracy: 0.0214
+
+
+
+

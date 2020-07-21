@@ -1,0 +1,140 @@
+Inception_ResNetV2_MODEL=tf.keras.applications.InceptionResNetV2(input_shape=(128,128,3),
+                                               include_top=False,
+                                               weights='imagenet')
+Froze first 203 layers
+
+Model: "sequential"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+inception_resnet_v2 (Model)  (None, 2, 2, 1536)        54336736  
+_________________________________________________________________
+flatten (Flatten)            (None, 6144)              0         
+_________________________________________________________________
+dense (Dense)                (None, 512)               3146240   
+_________________________________________________________________
+dense_1 (Dense)              (None, 92740)             47575620  
+=================================================================
+Total params: 105,058,596
+Trainable params: 103,663,076
+Non-trainable params: 1,395,520
+_________________________________________________________________
+
+train_generator = train_datagen.flow_from_directory(
+    '../datasets/set_128/train/',
+    target_size=(128,128),
+    batch_size=256,
+    class_mode='categorical'
+)
+
+history = model.fit_generator(
+    train_generator,
+    epochs = 10,
+    verbose=1
+)
+
+Found 3064239 images belonging to 92740 classes.
+WARNING:tensorflow:From <ipython-input-10-8e11ae41ed0a>:22: Model.fit_generator (from tensorflow.python.keras.engine.training) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please use Model.fit, which supports generators.
+WARNING:tensorflow:sample_weight modes were coerced from
+  ...
+    to  
+  ['...']
+Train for 11970 steps
+Epoch 1/10
+11970/11970 [==============================] - 8369s 699ms/step - loss: 10.6007 - accuracy: 6.7684e-04
+Epoch 2/10
+11970/11970 [==============================] - 7903s 660ms/step - loss: 9.3086 - accuracy: 0.0063
+Epoch 3/10
+11970/11970 [==============================] - 7820s 653ms/step - loss: 8.5264 - accuracy: 0.0184
+Epoch 4/10
+11970/11970 [==============================] - 7851s 656ms/step - loss: 8.1374 - accuracy: 0.0297
+Epoch 5/10
+11970/11970 [==============================] - 7985s 667ms/step - loss: 7.6455 - accuracy: 0.0486
+Epoch 6/10
+11970/11970 [==============================] - 7820s 653ms/step - loss: 7.2756 - accuracy: 0.0683
+Epoch 7/10
+11970/11970 [==============================] - 7837s 655ms/step - loss: 6.9691 - accuracy: 0.0871
+Epoch 8/10
+11970/11970 [==============================] - 7836s 655ms/step - loss: 6.8281 - accuracy: 0.0984
+Epoch 9/10
+11970/11970 [==============================] - 7832s 654ms/step - loss: 6.7080 - accuracy: 0.1079
+Epoch 10/10
+11970/11970 [==============================] - 7819s 653ms/step - loss: 6.4581 - accuracy: 0.1257
+
+history1 = history.model.fit_generator(
+    train_generator,
+    epochs = 10,
+    verbose=1
+)
+
+WARNING:tensorflow:sample_weight modes were coerced from
+  ...
+    to  
+  ['...']
+Train for 11970 steps
+Epoch 1/10
+11970/11970 [==============================] - 11243s 939ms/step - loss: 6.2814 - accuracy: 0.1399
+Epoch 2/10
+11970/11970 [==============================] - 7984s 667ms/step - loss: 6.1448 - accuracy: 0.1511
+Epoch 3/10
+11970/11970 [==============================] - 7936s 663ms/step - loss: 6.0093 - accuracy: 0.1629
+Epoch 4/10
+11970/11970 [==============================] - 7901s 660ms/step - loss: 5.9495 - accuracy: 0.1688
+Epoch 5/10
+11970/11970 [==============================] - 7912s 661ms/step - loss: 5.8143 - accuracy: 0.1803
+Epoch 6/10
+11970/11970 [==============================] - 7900s 660ms/step - loss: 5.7543 - accuracy: 0.1861
+Epoch 7/10
+11970/11970 [==============================] - 7883s 659ms/step - loss: 5.7306 - accuracy: 0.1893
+Epoch 8/10
+11970/11970 [==============================] - 7879s 658ms/step - loss: 5.5679 - accuracy: 0.2036
+Epoch 9/10
+11970/11970 [==============================] - 8057s 673ms/step - loss: 5.5780 - accuracy: 0.2025
+Epoch 10/10
+11970/11970 [==============================] - 7953s 664ms/step - loss: 5.8391 - accuracy: 0.1790
+
+history2 = history1.model.fit_generator(
+    train_generator,
+    epochs = 20,
+    verbose=1
+)
+
+WARNING:tensorflow:sample_weight modes were coerced from
+  ...
+    to  
+  ['...']
+Train for 11970 steps
+Epoch 1/20
+11970/11970 [==============================] - 7847s 656ms/step - loss: 5.7149 - accuracy: 0.1901
+Epoch 2/20
+11970/11970 [==============================] - 7882s 658ms/step - loss: 5.8548 - accuracy: 0.1794
+Epoch 3/20
+11970/11970 [==============================] - 7874s 658ms/step - loss: 5.9469 - accuracy: 0.1724
+Epoch 4/20
+11970/11970 [==============================] - 7875s 658ms/step - loss: 5.7960 - accuracy: 0.1861
+Epoch 5/20
+11970/11970 [==============================] - 7879s 658ms/step - loss: 5.6843 - accuracy: 0.1955
+Epoch 6/20
+11970/11970 [==============================] - 7872s 658ms/step - loss: 5.5689 - accuracy: 0.2067
+Epoch 7/20
+11970/11970 [==============================] - 7856s 656ms/step - loss: 5.5047 - accuracy: 0.2124
+Epoch 8/20
+11970/11970 [==============================] - 7876s 658ms/step - loss: 5.5859 - accuracy: 0.2055
+Epoch 9/20
+11970/11970 [==============================] - 7855s 656ms/step - loss: 5.3957 - accuracy: 0.2223
+Epoch 10/20
+11970/11970 [==============================] - 7851s 656ms/step - loss: 5.3660 - accuracy: 0.2256
+Epoch 11/20
+11970/11970 [==============================] - 7876s 658ms/step - loss: 5.2646 - accuracy: 0.2352
+Epoch 12/20
+11970/11970 [==============================] - 7882s 659ms/step - loss: 5.4036 - accuracy: 0.2193
+Epoch 13/20
+11970/11970 [==============================] - 8012s 669ms/step - loss: 5.3305 - accuracy: 0.2293
+Epoch 14/20
+11970/11970 [==============================] - 7863s 657ms/step - loss: 5.4444 - accuracy: 0.2183
+Epoch 15/20
+11970/11970 [==============================] - 7867s 657ms/step - loss: 5.1677 - accuracy: 0.2440
+Epoch 16/20
+ 9437/11970 [======================>.......] - ETA: 27:21 - loss: 5.2346 - accuracy: 0.2396
