@@ -1,0 +1,55 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "description": "google landmark detection swagger docs",
+    "version": "1.0.0",
+    "title": "Landmark-Detection-Flask-Swagger",
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "tags": [
+    {
+      "name": "Landmark Detection",
+      "description": "Example API for detecting landmark give user input image"
+    }
+  ],
+  "paths": {
+    "/upload": {
+      "post": {
+        "tags": ["Detect landmark"],
+        "description": "Upload an image and detect the landmark in the image",
+
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "media": {
+                    "type": "file"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Failed. Bad post data."
+          },
+          "500": {
+            "description": "Failed. Internal Server Error."
+          }
+        }
+      }
+    }
+  }
+
+}
+
