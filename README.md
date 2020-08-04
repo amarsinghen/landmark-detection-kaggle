@@ -6,7 +6,7 @@ Landmark recognition API takes an input image of any size and predicts and dislp
 ### Running the FLASK API
 - Download the repository.
 - Ensure you have all the dependencies as in the requirements.txt file
-- Download the trained model from this link: (TBD), and save it in the same location as app.py file (root) in the project.
+- Download the trained models from this link: (TBD), and save it in the model_weights directory in the project.
 - Run app.py
 
 ### Data Pre-Processing and Modeling
