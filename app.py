@@ -8,8 +8,8 @@ import os
 os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
 import tensorflow as tf
 from inference import simple_inference
-# import Flask dependencies
 from flask import Flask, request, render_template, send_from_directory
+from flask_swagger_ui import get_swaggerui_blueprint
 
 # Clearing keras session in the beginning
 tf.keras.backend.clear_session()
@@ -17,11 +17,8 @@ tf.keras.backend.clear_session()
 # Set root dir
 APP_ROOT = os.path.dirname(os.path.abspath(__file__))
 
-# Load model
-# trained_model = tf.keras.models.load_model('group5_set224_resnet50_NO_imagenet_weights_07112020.h5')
-
 # Define Flask app
-app = Flask(__name__, static_url_path='/static')
+app = Flask(__name__)
 
 
 # Define apps home page
@@ -38,6 +35,7 @@ def upload():
     if not os.path.isdir(upload_dir):
         os.mkdir(upload_dir)
 
+    img_name = ''
     for img in request.files.getlist("file"):
         img_name = img.filename
         destination = os.path.join(upload_dir, img_name)
@@ -55,7 +53,23 @@ def send_image(filename):
     return send_from_directory("uploads", filename)
 
 
-# Start the application
+@app.route('/static/<path:path>')
+def send_static(path):
+    return send_from_directory('static', path)
 
+
+SWAGGER_URL = '/swagger'
+API_URL = '/static/swagger.json'
+swaggerui_blueprint = get_swaggerui_blueprint(
+    SWAGGER_URL,
+    API_URL,
+    config={
+        "app_name": "Landmark-Detection-Flask-Swagger"
+    }
+)
+app.register_blueprint(swaggerui_blueprint, url_prefix=SWAGGER_URL)
+
+
+# Start the application
 if __name__ == "__main__":
     app.run(port=5000, debug=True)
