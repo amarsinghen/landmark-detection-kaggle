@@ -21,7 +21,7 @@ def simple_inference(uploaded_image_path):
 
 
 def resize_image(image_path, new_width, new_height):
-    image = Image.open(image_path)
+    image = Image.open(image_path, mode='r')
     image = ImageOps.fit(image, (new_width, new_height), Image.ANTIALIAS)
     return image
 
