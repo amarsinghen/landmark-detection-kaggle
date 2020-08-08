@@ -15,7 +15,7 @@
         <!-- Show query image -->
         <img src=" {{url_for('send_image', filename=image_name)}}" style="width:500px;height:500px;">
 
-
+        <h1 style="text-align: center;">Predicted Landmark Name : {{landmark_name_result}}</h1>
         <h1 style="text-align: center;">Predicted Landmark ID : {{landmark_id_result}}</h1>
         <h1 style="text-align: center;">Confidence Score : {{'%0.2f' % confidence_score|float}}%</h1>
 

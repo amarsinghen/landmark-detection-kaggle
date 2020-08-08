@@ -7,6 +7,9 @@ import os
 # Since there is no training, we want to run this code only on cpu save gpu resources
 os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
 import tensorflow as tf
+import gzip
+import pandas as pd
+
 from inference import simple_inference
 from flask import Flask, request, render_template, send_from_directory
 from flask_swagger_ui import get_swaggerui_blueprint
@@ -26,6 +29,12 @@ app = Flask(__name__)
 def index():
     return render_template("index.html")
 
+# load landmarkIds to names mapping file
+def landmark_ids_to_names_mapping():
+    with gzip.open('data/landmark_ids_names_dict.pkl.gzip', 'rb') as pickle_file:
+        landmark_ids_names_mapping_dict = pd.read_pickle(pickle_file)
+    return landmark_ids_names_mapping_dict
+
 
 # Define upload function
 @app.route("/upload", methods=["POST"])
@@ -41,10 +50,12 @@ def upload():
         destination = os.path.join(upload_dir, img_name)
         img.save(destination)
 
+    landmark_ids_to_names = landmark_ids_to_names_mapping()
+
     # inference
-    confidence_score, predicted_class = simple_inference(os.path.join(upload_dir, img_name))
+    confidence_score, predicted_id, predicted_name = simple_inference(os.path.join(upload_dir, img_name), landmark_ids_to_names)
     return render_template("result.html", image_name=img_name, confidence_score=confidence_score,
-                           landmark_id_result=predicted_class)
+                           landmark_id_result=predicted_id, landmark_name_result=predicted_name)
 
 
 # Define helper function for finding image paths
