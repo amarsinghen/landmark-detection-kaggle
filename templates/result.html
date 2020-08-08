@@ -3,8 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Result page</title>
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+    table, th, td {
+    border: 2px solid black;
+    padding-left = 4px
+    padding-right = 4px
+    padding-top: 4px;
+    padding-bottom: 4px;
+    text-align: center;
+    }
 
+    </style>
 </head>
 <body>
 <div class="container">
@@ -14,19 +24,26 @@
         <h1 style="text-align: center;">Query image</h1>
         <!-- Show query image -->
         <img src=" {{url_for('send_image', filename=image_name)}}" style="width:500px;height:500px;">
-
-        <h1 style="text-align: center;">Predicted Landmark Name : {{landmark_name_result}}</h1>
-        <h1 style="text-align: center;">Predicted Landmark ID : {{landmark_id_result}}</h1>
-        <h1 style="text-align: center;">Confidence Score : {{'%0.2f' % confidence_score|float}}%</h1>
-
         <hr>
-        <!-- Iterate through images -->
-        <!--{% for image_name in result_paths %}-->
-        <!--<div class="col-lg-1 col-md-4 col-xs-6 thumb">-->
-            <!--<br>-->
-            <!--<img class="img-responsive" src=" {{url_for('static', filename=image_name)}}">-->
-        <!--</div>-->
-        <!--{% endfor %}-->
+        <h3> Top 5 Predictions for the image</h3>
+        <!--Tabulating the results-->
+        <table>
+            <tr>
+                <th> Prediction Number</th>
+                <th> Predicted Landmark Name</th>
+                <th> Landmark ID</th>
+                <th> Confidence Score</th>
+            </tr>
+            {% for i in range((landmark_id_result|length)) %}
+            <tr>
+                <td> {{i+1}}</td>
+                <td> {{landmark_name_result[i]}}</td>
+                <td> {{landmark_id_result[i]}}</td>
+                <td> {{'%0.2f' % confidence_score[i]|float}}%</td>
+            </tr>
+            {% endfor %}
+        </table>
+
     </div>
 </div>
 

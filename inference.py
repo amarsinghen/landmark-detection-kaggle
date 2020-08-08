@@ -1,27 +1,45 @@
 import numpy as np
-import pandas as pd
 from PIL import Image, ImageOps
-import os
-
-# Since there is no training, we want to run this code only on cpu save gpu resources
-os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
-import tensorflow as tf
 import logging
+import operator
 
 logging.basicConfig(level=logging.INFO)
 
 
-def simple_inference(uploaded_image_path, landmark_ids_names_mapping_dict):
+def simple_inference(uploaded_image_path,
+                     landmark_ids_names_mapping_dict,
+                     loaded_models_list,
+                     indices_to_class_labels_dict_list):
     '''
     Doing simple inference for single uploaded image.
+    :param indices_to_class_labels_dict_list:
+    :param loaded_models_list:
     :param landmark_ids_names_mapping_dict:
     :param uploaded_image_path: string, path to the uploaded image
     '''
 
     image = load_image(uploaded_image_path)
-    predicted_id, confidence_score = predict_class_confidence_score(image)
-    predicted_name = landmark_ids_names_mapping_dict[int(predicted_id)]
-    return confidence_score * 100, predicted_id, predicted_name
+    predicted_id_confidence_score_dict = predict_class_confidence_score(image,
+                                                                        loaded_models_list,
+                                                                        indices_to_class_labels_dict_list)
+    # sorting dictionary by values
+    sorted_predicted_id_confidence_score_tuple_list = sorted(predicted_id_confidence_score_dict.items(),
+                                                             key=operator.itemgetter(1), reverse=True)
+
+    predicted_id_list = []
+    predicted_name_list = []
+    confidence_score_list = []
+    for i in range(len(sorted_predicted_id_confidence_score_tuple_list)):
+        predicted_id = sorted_predicted_id_confidence_score_tuple_list[i][0]
+        confidence_score = sorted_predicted_id_confidence_score_tuple_list[i][1]
+        predicted_name = landmark_ids_names_mapping_dict[int(predicted_id)]
+
+        predicted_name_list.append(predicted_name)
+        logging.info("Identified landmarkID : {}, Name {}".format(predicted_id, predicted_name))
+        predicted_id_list.append(predicted_id)
+        confidence_score_list.append(confidence_score)
+
+    return confidence_score_list, predicted_id_list, predicted_name_list
 
 
 def resize_image(image_path, new_width, new_height):
@@ -38,32 +56,19 @@ def load_image(uploaded_image_path):
     return image
 
 
-def predict_class_confidence_score(image):
-    loaded_models_list, indices_to_class_labels_dict_list = load_model_weights_and_class_labels()
+def predict_class_confidence_score(image, loaded_models_list, indices_to_class_labels_dict_list):
     results_list = []
-    predicted_class_list = []
-    confidence_score_list = []
-    max_confidence_score_tuple = (0, 0)
+    predicted_id_confidence_score_dict = {}
     for j in range(len(loaded_models_list)):
         results_list.append(loaded_models_list[j].predict(image))
-        predicted_class_list.append(indices_to_class_labels_dict_list[j][np.argmax(results_list[j])])
-        confidence_score_list.append(max(results_list[j][0]))
-        logging.info("Identified landmark for image is : {}".format(predicted_class_list[j]))
-        logging.info("Confidence score : {}".format(confidence_score_list[j]))
+
+        predicted_class = indices_to_class_labels_dict_list[j][np.argmax(results_list[j])]
+        confidence_score = max(results_list[j][0]) * 100
+        predicted_id_confidence_score_dict[predicted_class] = confidence_score
+
+        logging.info("Identified landmark ID for image is : {}".format(predicted_class))
+        logging.info("Confidence score : {}".format(confidence_score))
         logging.info("Whole Result array : {}\n".format(sorted(results_list[j][0])[-5:]))
-        if confidence_score_list[j] > max_confidence_score_tuple[1]:
-            max_confidence_score_tuple = (predicted_class_list[j], confidence_score_list[j])
-    return max_confidence_score_tuple[0], max_confidence_score_tuple[1]
-
-
-def load_model_weights_and_class_labels():
-    num_of_models = 2
-    loaded_models_list = []
-    indices_to_class_labels_dict_list = []
-
-    for i in range(num_of_models):
-        filepath = "model_weights/group{}_set224_resnet50_weights.hdf5".format(i + 10)
-        loaded_models_list.append(tf.keras.models.load_model(filepath))
-        with open("model_weights/group{}_indices_to_class_labels_dict.json".format(i + 10), "rb") as pickle_file:
-            indices_to_class_labels_dict_list.append(pd.read_pickle(pickle_file))
-    return loaded_models_list, indices_to_class_labels_dict_list
+    logging.info(
+        "Predicted LandmarkId and Confidence score dictionary : \n {}".format(predicted_id_confidence_score_dict))
+    return predicted_id_confidence_score_dict
