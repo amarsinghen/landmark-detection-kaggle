@@ -2,6 +2,7 @@ import numpy as np
 import pandas as pd
 from PIL import Image, ImageOps
 import os
+
 # Since there is no training, we want to run this code only on cpu save gpu resources
 os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
 import tensorflow as tf
@@ -9,15 +10,18 @@ import logging
 
 logging.basicConfig(level=logging.INFO)
 
-def simple_inference(uploaded_image_path):
+
+def simple_inference(uploaded_image_path, landmark_ids_names_mapping_dict):
     '''
     Doing simple inference for single uploaded image.
+    :param landmark_ids_names_mapping_dict:
     :param uploaded_image_path: string, path to the uploaded image
     '''
 
     image = load_image(uploaded_image_path)
-    predicted_class, confidence_score = predict_class_confidence_score(image)
-    return confidence_score*100, predicted_class
+    predicted_id, confidence_score = predict_class_confidence_score(image)
+    predicted_name = landmark_ids_names_mapping_dict[int(predicted_id)]
+    return confidence_score * 100, predicted_id, predicted_name
 
 
 def resize_image(image_path, new_width, new_height):
