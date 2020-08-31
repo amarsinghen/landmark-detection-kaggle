@@ -1,7 +1,6 @@
-## Google Landmark Recognition 2019 Kaggle
-(https://www.kaggle.com/c/landmark-recognition-2019)
+## Identifying 1000s Important Landmarks in the World using Image Classification
 
-Landmark recognition API takes an input image of any size and predicts and dislplays the landmark_id out of 92k landmarks along with the confidence score.
+Landmark recognition API takes an input image of any size and predicts and dislplays the Landmark Name out of 92k landmarks along with the confidence score.
 
 ### Running the FLASK API
 - Download the repository.
@@ -52,7 +51,9 @@ Intel 9900k 8 core cpu, 1 RTX 2080TI GPU, 64gb RAM
   - The number of images per class were really small, 6 minimum and 100 maximum. Most of the landmarks (~39k) had only 6 to 10 images. Creating a lot of imbalance
   - Even after DeLF step, there were a lot of images with only people, water, trees, bushes, no buildings etc., adding a lot of noise to dataset.
   - A lot of landmarks were just mountains and beaches. Therefore, this adds a lot of confusion to relate the exact beach or mountain to a specific landmark. I think even humans (as a true reference point) can wrongly identify these mountains and beaches.
+  - After somoe more deep analysis with LIME framework, I found that model was also saving blue sky as an important feature during training among many landmarks. Therefore, it added additional complexity in distinguishing different landmarks. 
   
 #### Further Improvements/ Recommendations
 - To process this scale of dataset, it is recommended to get a bigger hardware (Ideal in home relatively affordable: AMD Ryzen threadripper3990x 64-core, 4 RTX2080TI GPUs, 256GB RAM powered with solar panels :)). It will save days to tackle such a project.
-- Further data cleaning using Object detection is recommended. We can remove images with only people, trees, water, and no buildings to reduce more noisy data. Thanks to google's Tensorflow team, there are some good examples we can refer to. https://www.tensorflow.org/hub/tutorials/object_detection
+- Further data cleaning using Object detection is recommended. We can remove images with only people, trees, water, and no buildings to reduce more noisy data.
+- We can also try to mask sky in the images since model was also recognizing on sky as a feature. I tried it, but maskign step took ~1-2 secs per image. Given the size of the dataset ~4 million images and hardware restrictions, it was not feasible to complete this step in a reasonable time frame.
