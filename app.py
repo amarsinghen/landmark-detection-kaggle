@@ -54,7 +54,7 @@ def load_model_weights_and_class_labels():
 # Define upload function
 @app.route("/upload", methods=["POST"])
 def upload():
-    upload_dir = os.path.join(APP_ROOT, "uploads/")
+    upload_dir = os.path.join(APP_ROOT, "uploads")
 
     if not os.path.isdir(upload_dir):
         os.mkdir(upload_dir)
