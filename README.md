@@ -3,7 +3,7 @@
 Landmark recognition API takes an input image of any size then predicts and displays the Landmark Name out of 90k landmarks along with the confidence score.
 
 ### Business Use-case
-Landmark recognition API helps travels with finding the names of the historical places he/she is visiting by uploading the image of the building/landmark to the API.
+Landmark recognition API helps travelers with finding the names of the historical places he/she is visiting by uploading the image of the building/landmark to the API.
 
 ### Running the FLASK API
 - Download the repository.
