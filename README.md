@@ -12,7 +12,7 @@ Landmark recognition API helps travels with finding the names of the historical 
 - The API starts on the localhost:5000 and serves **/upload** and **/swagger** URIs
 
 #### Flask API Architecture Diagram
-![alt text](https://github.com/amarsinghen/landmark-detection-kaggle/blob/master/model_weights/architecture_diagrams/flask_api_architecture.jpg?raw=true)
+![Screenshot](/model_weights/architecture_diagrams/flask_api_architecture.JPG)
 
 ### Data Pre-Processing and Modeling
 All jupyter notebooks and python files for this step can be found under jupyter_notebooks folder in this project
@@ -25,7 +25,7 @@ All jupyter notebooks and python files for this step can be found under jupyter_
 Intel 9900k 8 core cpu, 1 RTX 2080TI GPU, 64gb RAM
 
 #### Model Training Architecture
-![alt text](https://github.com/amarsinghen/landmark-detection-kaggle/blob/master/model_weights/architecture_diagrams/model_training_architecture.jpg?raw=true)
+![alt text](/model_weights/architecture_diagrams/model_training_architecture.JPG)
 
 #### Data Pre-Processing
 - Classes with 5 or less images were discarded since the dataset size is too small for those classes.
